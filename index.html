@@ -24,6 +24,9 @@
             // var to hold underscores in browers
             var spaces = "";
 
+            // var to hold guessesLeft, initiates to this value
+            var guessesLeft = 10;
+
             // var of the maximum index number of bands array
             var maxBandsLength = bands.length-1;
 
@@ -49,6 +52,19 @@
             // assigns value of spaces to the textContent of currentBand 
             // aka gets value of spaces into html and on the browser
             currentBand.textContent = spaces;
+
+            // checks if key pressed is in current band
+            document.onkeyup = function(event) {
+
+                    if (event.key===" ") {
+                        alert("Oi! That's not a letter!");
+                    } else if (bands[random].includes(event.key)) {
+                        alert("that's right")
+                    } else {
+                        guessesLeft--;
+                    }
+                
+            }
 
             
         </script>
