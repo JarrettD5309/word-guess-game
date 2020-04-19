@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <style>
-            p {font-family: 'Courier New', Courier, monospace;}
+            p {font-family: 'Courier New', Courier, monospace;letter-spacing: 3px;}
         </style>
     </head>
 
@@ -21,11 +21,16 @@
             // array of hangman words aka bands
             var bands = ["the clash","crass","minutemen","the slits"];
 
-            // var to hold underscores in browers
-            var spaces = "";
+            // var to hold characters in browers
+            var browChar = "";
 
             // var to hold guessesLeft, initiates to this value
             var guessesLeft = 10;
+
+            // var to hold band name as character array
+            var wordArr=[];
+
+            var browArr=[];
 
             // var of the maximum index number of bands array
             var maxBandsLength = bands.length-1;
@@ -41,30 +46,60 @@
 
             
             // creates underscores in browser according to index of bands array 
+            // bands[random] is the current band name
             for (i=0;i<bands[random].length;i++) {
                 if (bands[random][i]===" ") {
-                    spaces = spaces+"\xa0\xa0\xa0";
+                    browArr.push("\xa0");
                 } else {
-                spaces = spaces+"_ ";
+                    browArr.push("_");
                 }
-            }
 
-            // assigns value of spaces to the textContent of currentBand 
-            // aka gets value of spaces into html and on the browser
-            currentBand.textContent = spaces;
+                // takes browArr and converts to a string
+                browChar = browArr.join("");
+
+                // assigns value of browChar to the textContent of currentBand 
+                // aka gets value of browChar into html and on the browser
+                currentBand.textContent = browChar;
+
+                // splits the current band name into an array
+                wordArr=bands[random].split("");
+            }
 
             // checks if key pressed is in current band
             document.onkeyup = function(event) {
-
-                    if (event.key===" ") {
-                        alert("Oi! That's not a letter!");
+                
+                // decides what to do with key pushed
+                    // so it doesn't count the spacebar in the game
+                if (event.key===" ") {
+                    alert("Oi! That's not a letter!");
+                    // checks if the current band name included the letter pushed
                     } else if (bands[random].includes(event.key)) {
-                        alert("that's right")
+                        alert("that's right");
+                        // for loop that runs as many times as the wordArr is long
+                        for (i=0;i<wordArr.length;i++) {
+                            // compares letter pushed to the letter at the current index of wordArr
+                            if (event.key===wordArr[i]) {
+                                // replaces underscore in browArr at current index with letter from wordArr at current index
+                                // aka makes browArr match wordArr where a correct letter was choosen
+                                browArr[i]=wordArr[i];
+                            }
+                        }
                     } else {
+                        // reduces guessesLeft for incorrect choice
+                        alert("WRONG!");
                         guessesLeft--;
                     }
+
+                // takes browArr and converts to a string
+                browChar = browArr.join("");
+
+                // assigns value of browChar to the textContent of currentBand 
+                // aka gets value of browChar into html and on the browser
+                currentBand.textContent = browChar;
                 
             }
+
+            
 
             
         </script>
