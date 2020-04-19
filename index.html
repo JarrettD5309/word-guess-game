@@ -5,6 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <style>
+            p {font-family: 'Courier New', Courier, monospace;}
+        </style>
     </head>
 
     <body>
@@ -12,14 +15,39 @@
         <p><span id="screen_word"></span></p>
 
         <script>
+            // assigns var to html element
             var currentBand = document.getElementById("screen_word");
-            var bands = ["crass"];
+
+            // array of hangman words aka bands
+            var bands = ["the clash","crass","minutemen","the slits"];
+
+            // var to hold underscores in browers
             var spaces = "";
 
-            for (i=0;i<bands[0].length;i++) {
-                spaces = spaces+"_ ";
+            // var of the maximum index number of bands array
+            var maxBandsLength = bands.length-1;
+
+            // var of a random integer between 0 (inclusive) and max (inclusive) index of bands
+            var random = getRandomInt(maxBandsLength);
+
+            // function to generate random integer between 0 and a max value (both inclusive) 
+            function getRandomInt(max) {
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max + 1));
             }
 
+            
+            // creates underscores in browser according to index of bands array 
+            for (i=0;i<bands[random].length;i++) {
+                if (bands[random][i]===" ") {
+                    spaces = spaces+"\xa0\xa0\xa0";
+                } else {
+                spaces = spaces+"_ ";
+                }
+            }
+
+            // assigns value of spaces to the textContent of currentBand 
+            // aka gets value of spaces into html and on the browser
             currentBand.textContent = spaces;
 
             
