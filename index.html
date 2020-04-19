@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>Punk Hangman</h1>
+        <p><span id="screen_word"></span></p>
+
+        <script>
+            var currentBand = document.getElementById("screen_word");
+            var bands = ["crass"];
+            var spaces = "";
+
+            for (i=0;i<bands[0].length;i++) {
+                spaces = spaces+"_ ";
+            }
+
+            currentBand.textContent = spaces;
+
+            
+        </script>
+
+    </body> 
+
+</html>
