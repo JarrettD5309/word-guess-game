@@ -5,13 +5,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <style>
-            p {font-family: 'Courier New', Courier, monospace;letter-spacing: 3px;}
-        </style>
+        <link rel="stylesheet" href="assets/css/style.css">
     </head>
 
     <body>
         <h1>Punk Hangman</h1>
+        
         <p><span id="screen_word"></span></p>
 
         <script>
@@ -19,7 +18,7 @@
             var currentBand = document.getElementById("screen_word");
 
             // array of hangman words aka bands
-            var bands = ["the clash","crass","minutemen","the slits"];
+            var bands = ["the clash","crass","minutemen","the slits","patti smith","black flag","big boys"];
 
             // var to hold characters in browers
             var browChar = "";

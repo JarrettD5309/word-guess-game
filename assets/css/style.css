@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Peace";
+    src: url("../fonts/hvd_peace.woff") format("woff"),
+        url("../fonts/hvd_peace.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Crass";
+    src: url("../fonts/crass.woff2") format("woff2"),
+        url("../fonts/crass.woff") format("woff"),
+        url("../fonts/crass.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+p {
+      letter-spacing: 3px;
+}
+
+body {
+    font-family: Peace;
+}
