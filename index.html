@@ -14,15 +14,17 @@
         <p><span id="screen_word"></span></p>
         <p>Guesses Left = <span id="guesses_left">10</span></p>
         <p>Already Guessed = <span id="guess_letters"></span></p>
+        <p>Wins = <span id="wins_span"></span></p>
 
         <script>
             // assigns var to html element
             var currentBand = document.getElementById("screen_word");
 
-            // assigns var to html element
             var screenGuesses = document.getElementById("guesses_left");
 
             var screenGuessLetters = document.getElementById("guess_letters");
+
+            var winsBrow = document.getElementById("wins_span");
             
             // array of hangman words aka bands
             var bands = ["the clash","crass","minutemen","the slits","patti smith","black flag","big boys"];
@@ -42,7 +44,11 @@
             // var to hold letters already played
             var guessArr=[];
 
+            // var to hold guesses as a string
             var guessChar = "";
+
+            // var to hold number of wins
+            var wins=0;
 
             // var of the maximum index number of bands array
             var maxBandsLength = bands.length-1;
@@ -106,6 +112,12 @@
                         guessArr.push(event.key);
                     }
 
+                if (browArr.includes("_")) {
+
+                } else {
+                    wins++;
+                }
+
                 // takes browArr and converts to a string
                 browChar = browArr.join("");
 
@@ -119,7 +131,11 @@
                 // assigns value of guessesLeft to textContent of screenGuesses
                 screenGuesses.textContent = guessesLeft;
 
+                // assigns value of guessChar to textContent of screenGuessLetters
                 screenGuessLetters.textContent = guessChar;
+
+                // assigns value of wins to textContent of winsBrow
+                winsBrow.textContent = wins;
                 
             }
 
