@@ -12,11 +12,18 @@
         <h1>Punk Hangman</h1>
         
         <p><span id="screen_word"></span></p>
+        <p>Guesses Left = <span id="guesses_left">10</span></p>
+        <p>Already Guessed = <span id="guess_letters"></span></p>
 
         <script>
             // assigns var to html element
             var currentBand = document.getElementById("screen_word");
 
+            // assigns var to html element
+            var screenGuesses = document.getElementById("guesses_left");
+
+            var screenGuessLetters = document.getElementById("guess_letters");
+            
             // array of hangman words aka bands
             var bands = ["the clash","crass","minutemen","the slits","patti smith","black flag","big boys"];
 
@@ -29,7 +36,13 @@
             // var to hold band name as character array
             var wordArr=[];
 
+            // var to hold letters and underscores as played
             var browArr=[];
+
+            // var to hold letters already played
+            var guessArr=[];
+
+            var guessChar = "";
 
             // var of the maximum index number of bands array
             var maxBandsLength = bands.length-1;
@@ -83,20 +96,34 @@
                                 browArr[i]=wordArr[i];
                             }
                         }
+                    } else if (guessArr.includes(event.key)) {
+                        alert("You already tried that one!");
                     } else {
                         // reduces guessesLeft for incorrect choice
                         alert("WRONG!");
                         guessesLeft--;
+                        // adds incorrect guesses to guess array
+                        guessArr.push(event.key);
                     }
 
                 // takes browArr and converts to a string
                 browChar = browArr.join("");
 
+                // takes guessArr and converts to a string
+                guessChar = guessArr.join(",");
+
                 // assigns value of browChar to the textContent of currentBand 
                 // aka gets value of browChar into html and on the browser
                 currentBand.textContent = browChar;
+
+                // assigns value of guessesLeft to textContent of screenGuesses
+                screenGuesses.textContent = guessesLeft;
+
+                screenGuessLetters.textContent = guessChar;
                 
             }
+
+            
 
             
 
