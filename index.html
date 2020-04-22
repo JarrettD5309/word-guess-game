@@ -10,9 +10,11 @@
 
     <body>
         <h1>Punk Hangman</h1>
+
+        <img id="hangman-img" src="assets/images/hangman1.png" alt="Hangman Gallow" width="250px">
         
         <p><span id="screen_word"></span></p>
-        <p>Guesses Left = <span id="guesses_left">10</span></p>
+        <p>Guesses Left = <span id="guesses_left">6</span></p>
         <p>Already Guessed = <span id="guess_letters"></span></p>
         <p>Wins = <span id="wins_span">0</span></p>
 
@@ -25,6 +27,8 @@
             var screenGuessLetters = document.getElementById("guess_letters");
 
             var winsBrow = document.getElementById("wins_span");
+
+            var hangmanImg = document.getElementById("hangman-img");
             
             // array of hangman words aka bands
             var bands = ["the clash","crass","minutemen","the slits","patti smith","black flag","big boys"];
@@ -33,7 +37,10 @@
             var browChar = "";
 
             // var to hold guessesLeft, initiates to this value
-            var guessesLeft = 10;
+            var guessesLeft = 6;
+
+            // counts guesses up for change img function
+            var guessesInc = 0;
 
             // var to hold band name as character array
             var wordArr=[];
@@ -56,20 +63,29 @@
             // var of a random integer between 0 (inclusive) and max (inclusive) index of bands
             var random = getRandomInt(maxBandsLength);
 
+            imgArr = ["assets/images/hangman2.png","assets/images/hangman3.png","assets/images/hangman4.png","assets/images/hangman5.png","assets/images/hangman6.png","assets/images/hangman7.png"];
+
             // function to generate random integer between 0 and a max value (both inclusive) 
             function getRandomInt(max) {
                 max = Math.floor(max);
                 return Math.floor(Math.random() * (max + 1));
             }
 
+            function imgChange(i) {
+                hangmanImg.src = imgArr[i];
+            }
+
+            // resets most var so game can restart
             function resetGame() {
                 browArr=[];
                 wordArr=[];
                 browChar = "";
                 random = getRandomInt(maxBandsLength);
-                guessesLeft = 10;
+                guessesLeft = 6;
                 guessArr=[];
                 guessChar = "";
+                hangmanImg.src = "assets/images/hangman1.png";
+                guessesInc = 0;
             }
 
             // randomly chooses band name, assigns values to browArr and browChar
@@ -138,6 +154,9 @@
                             // reduces guessesLeft for incorrect choice
                             alert("WRONG!");
                             guessesLeft--;
+                            // changes hangman img and increases guess count
+                            imgChange(guessesInc);
+                            guessesInc++;
                             // adds incorrect guesses to guess array
                             guessArr.push(event.key);
                         }
