@@ -26,3 +26,102 @@ p {
 body {
     font-family: Peace;
 }
+
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+.container {
+    position: relative;
+    width:900px;
+    height:600px;
+    /* border: 3px solid black;
+    background-color: blue; */
+    z-index: -1;
+    margin: 0 auto;
+    padding:0;
+}
+
+.crass-top {
+    background-color: black;
+    color: white;
+    width: 100%;
+    font-family: Crass;
+    letter-spacing: 1rem;
+    word-spacing: 2rem;
+    position: absolute;
+    top:0;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+}
+
+.crass-bottom {
+    background-color: black;
+    color: white;
+    width: 100%;
+    font-family: Crass;
+    letter-spacing: 1rem;
+    word-spacing: 3rem;
+    position: absolute;
+    bottom:0;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+}
+
+.crass-right {
+    background-color: black;
+    color: white;
+    width: 600px;
+    font-family: Crass;
+    letter-spacing: 1rem;
+    word-spacing: 2rem;
+    position: absolute;
+    bottom:44.7%;
+    right:-30%;
+    transform: rotate(90deg);
+    box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+    padding-left:10px;
+}
+
+.crass-left {
+    background-color: black;
+    color: white;
+    width: 600px;
+    font-family: Crass;
+    letter-spacing: 1rem;
+    word-spacing: 1.5rem;
+    position: absolute;
+    bottom:44.7%;
+    left:-30%;
+    transform: rotate(-90deg);
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+    padding-left: 8px;
+    z-index: 2;
+}
+
+.crass-center {
+    position: absolute;
+    left: 28%;
+    top: 25%;
+
+}

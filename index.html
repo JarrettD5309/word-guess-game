@@ -62,12 +62,19 @@
                 return Math.floor(Math.random() * (max + 1));
             }
 
-            // randomly chooses band name, assigns values to browArr and browChar
-            function getWord() {
+            function resetGame() {
                 browArr=[];
                 wordArr=[];
                 browChar = "";
                 random = getRandomInt(maxBandsLength);
+                guessesLeft = 10;
+                guessArr=[];
+                guessChar = "";
+            }
+
+            // randomly chooses band name, assigns values to browArr and browChar
+            function getWord() {
+                
                 // creates underscores in browser according to index of bands array 
                 // bands[random] is the current band name
                 for (i=0;i<bands[random].length;i++) {
@@ -91,9 +98,6 @@
             }
             
             function playGame () {
-                guessesLeft = 10;
-                guessArr=[];
-                guessChar = "";
                  // assigns value of browChar to the textContent of currentBand 
                     // aka gets value of browChar into html and on the browser
                     currentBand.textContent = browChar;
@@ -138,20 +142,25 @@
                             guessArr.push(event.key);
                         }
 
+                    // checks for underscores aka is game still going
                     if (browArr.includes("_")) {
 
+                        // checks win, adds win counter, runs game functions
                     } else {
                         wins++;
                         alert("Play again!");
                         document.onkeyup = function() {
+                            resetGame();
                             getWord();
                             playGame();
                         };
                     }
 
+                    // checks if the player has lost, runs game
                     if (guessesLeft===0) {
                         alert("You Lost!");
                         document.onkeyup = function() {
+                            resetGame();
                             getWord();
                             playGame();
                         };
@@ -183,7 +192,7 @@
                 
             }
 
-            
+            // starts game functions
             document.onkeyup = function() {
                 getWord();
                 playGame();
