@@ -184,7 +184,8 @@ h2 {
     
     .container {
         width: 380px;
-        height: 550px;
+        height: auto;
+        min-height: 550px;
         margin-top: 10px;
         border: 1px solid black;
     }
