@@ -142,7 +142,7 @@ function playGame () {
                     }
                 }
             } else if (guessArr.includes(event.key)) {
-                alert("You already tried that one!");
+                // alert("You already tried that one!");
             } else {
                 // reduces guessesLeft for incorrect choice
                 guessesLeft--;
