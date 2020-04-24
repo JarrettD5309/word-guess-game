@@ -21,7 +21,7 @@ var playAgain = document.getElementById("play_again");
 var answer = document.getElementById("answer");
 
 // array of hangman words aka bands
-var bands = ["the clash","crass","minutemen","the slits","patti smith","black flag","big boys"];
+var bands = ["bad brains","big boys","black flag","crass","minutemen","misfits","patti smith","ramones","rancid","richard hell","the clash","the slits","x"];
 
 // var to hold characters in browser
 var browChar = "";
@@ -50,18 +50,14 @@ var wins=0;
 // var to hole number of losses
 var losses=0;
 
-// var of the maximum index number of bands array
-var maxBandsLength = bands.length-1;
-
 // var of a random integer between 0 (inclusive) and max (inclusive) index of bands
-var random = getRandomInt(maxBandsLength);
+var random = getRandomInt(bands.length);
 
 imgArr = ["assets/images/hangman2.png","assets/images/hangman3.png","assets/images/hangman4.png","assets/images/hangman5.png","assets/images/hangman6.png","assets/images/hangman7.png"];
 
-// function to generate random integer between 0 and a max value (both inclusive) 
+// function to generate random integer 
 function getRandomInt(max) {
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max + 1));
+    return Math.floor(Math.random() * max);
 }
 
 function imgChange(i) {
@@ -73,7 +69,7 @@ function resetGame() {
     browArr=[];
     wordArr=[];
     browChar = "";
-    random = getRandomInt(maxBandsLength);
+    random = getRandomInt(bands.length);
     guessesLeft = 6;
     guessArr=[];
     guessChar = "";
@@ -165,7 +161,10 @@ function playGame () {
             wins++;
             playAgain.textContent = "Press any key to play again";
             headline.textContent = "You Win!";
+            document.getElementById(random).play();
             document.onkeyup = function() {
+                document.getElementById(random).pause();
+                document.getElementById(random).currentTime = 0;
                 resetGame();
                 getWord();
                 playGame();

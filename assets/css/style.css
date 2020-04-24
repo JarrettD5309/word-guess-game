@@ -15,6 +15,12 @@
     font-style: normal;
 }
 
+body {
+    font-family: Peace;
+    display: block;
+    margin: 8px;
+}
+
 h1 {
     font-size: 3rem;
 }
@@ -22,16 +28,6 @@ h1 {
 p {
       letter-spacing: 3px;
       padding: .15rem;
-}
-
-body {
-    font-family: Peace;
-}
-
-
-body {
-    display: block;
-    margin: 8px;
 }
 
 h2 {
@@ -48,7 +44,6 @@ h2 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
 }
-
 
 .container {
     position: relative;
@@ -128,5 +123,32 @@ h2 {
     padding-top: 100px;
     width: 60%;
     text-align: center;
-
 }
+
+/* up to 400px
+@media screen and (max-width: 400px) {
+.container {
+    background-color: violet;
+}
+}
+
+/* 401px to 640px */
+/* @media screen and (min-width: 401px) and (max-width: 640px) {
+.container {
+    background-color: yellow;
+}
+} */
+
+/* 641px to 768px */
+/* @media screen and (min-width: 641px) and (max-width: 768px) {
+.container {
+    background-color: green;
+}
+} */
+
+/* 769px to 920px */
+/* @media screen and (min-width: 769px) and (max-width: 920px) {
+.container {
+    background-color: blue;
+}
+} */ */
