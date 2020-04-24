@@ -50,7 +50,7 @@ var wins=0;
 // var to hole number of losses
 var losses=0;
 
-// var of a random integer between 0 (inclusive) and max (inclusive) index of bands
+// var of a random integer between 0 (inclusive) and bands.length-1
 var random = getRandomInt(bands.length);
 
 imgArr = ["assets/images/hangman2.png","assets/images/hangman3.png","assets/images/hangman4.png","assets/images/hangman5.png","assets/images/hangman6.png","assets/images/hangman7.png"];
