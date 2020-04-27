@@ -240,6 +240,7 @@ h2 {
     .crass-top {
         word-spacing: .5rem;
         padding-left: 17px;
+        z-index: 5;
     }
     
     .crass-right {
